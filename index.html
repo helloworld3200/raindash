@@ -6,6 +6,7 @@
     <title>Rainy Window</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/ui.css" />
   </head>
   <body>
     <div id="container"></div>
@@ -15,9 +16,19 @@
       <div class="indeterminate-progress-bar__progress"></div>
     </div>
 
+    <div id="ui-main" class="ui-main">
+      <div id="clock" class="clock">
+        Error loading clock
+      </div>
+      <div id="date" class="date">
+        Error loading date
+      </div>
+    </div>
+
     <script src="js/dat.gui.min.js"></script>
     <script src="js/three.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/ui.js"></script>
     <script>
       //threejs scene first run
       let background = document.getElementById("container");

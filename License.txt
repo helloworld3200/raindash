@@ -1,6 +1,9 @@
-Rain by Rocksdanister licensed under
+Rain by Rocksdanister and helloworld3200 licensed under
 Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
-Source:
+
+https://github.com/helloworld3200/raindash
+
+Original Source (before forked from original project):
 https://github.com/rocksdanister/rain
 
 **********************************************************************************************
