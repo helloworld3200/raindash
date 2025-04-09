@@ -1,3 +1,7 @@
+// WARNING
+// BEFORE UR DONE REMOVE ALL THE LINES MARKED BY __REMOVE_AFTER_TESTING__
+
+
 const container = document.getElementById("container");
 let clock = new THREE.Clock();
 const gui = new dat.GUI();
@@ -7,7 +11,7 @@ let isPaused = false,
 let devicePixelRatio = window.devicePixelRatio || 1;
 
 let scene, camera, renderer, material;
-let settings = { fps: 30, scale: 1.0, parallaxVal: 1 };
+let settings = { fps: 30, scale: 1.0, parallaxVal: 0 };
 let videoElement;
 
 //custom events
@@ -29,13 +33,13 @@ async function init() {
       u_time: { value: 0, type: "f" },
       u_intensity: { value: 0.4, type: "f" },
       u_speed: { value: 0.25, type: "f" },
-      u_brightness: { value: 0.8, type: "f" },
+      u_brightness: { value: 0.75, type: "f" },
       u_normal: { value: 0.5, type: "f" },
       u_zoom: { value: 2.61, type: "f" },
       u_blur_intensity: { value: 0.5, type: "f" },
       u_blur_iterations: { value: 16, type: "i" },
       u_panning: { value: false, type: "b" },
-      u_post_processing: { value: true, type: "b" },
+      u_post_processing: { value: false, type: "b" },
       u_lightning: { value: false, type: "b" },
       u_texture_fill: { value: true, type: "b" },
       u_resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight), type: "v2" },
@@ -53,7 +57,9 @@ async function init() {
   resize();
 
   material.uniforms.u_tex0_resolution.value = new THREE.Vector2(1920, 1080);
-  material.uniforms.u_tex0.value = await new THREE.TextureLoader().loadAsync("media/image.webp");
+  //material.uniforms.u_tex0.value = await new THREE.TextureLoader().loadAsync("media/image.webp");
+  //__REMOVE_AFTER_TESTING__ below line and recomment below line
+  material.uniforms.u_tex0.value = await new THREE.TextureLoader().loadAsync("media/image.jpg");
 
   const quad = new THREE.Mesh(new THREE.PlaneGeometry(2, 2, 1, 1), material);
   scene.add(quad);
@@ -185,7 +191,7 @@ function livelyPropertyListener(name, val) {
       material.uniforms.u_post_processing.value = val;
       break;
     case "parallaxIntensity":
-      settings.parallaxVal = val;
+      settings.parallaxVal = 0;
       break;
     case "fpsLock":
       settings.fps = val ? 30 : 60;
